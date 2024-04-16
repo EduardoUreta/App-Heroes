@@ -13,13 +13,9 @@ export const HeroPage = () => {
   const navigate = useNavigate();
   const onNavigateBack = () => {
     if(hero.publisher === "Marvel Comics"){
-      navigate("/marvel"),{
-        redirect: true
-      };
+      navigate("/marvel");
     } else if (hero.publisher === "DC Comics"){
-      navigate("/dc"),{
-        redirect: true
-      };
+      navigate("/dc");
     }
   };
 
@@ -37,7 +33,7 @@ export const HeroPage = () => {
   return (
     <div className="row mt-5">
       <div className="col-4">
-        <img src={`/assets/heroes/${hero.id}.jpg`} alt={hero.superhero} className="img-fluid img-thumbnail "/>
+        <img src={`/assets/heroes/${hero.id}.jpg`} alt={hero.superhero} className="img-fluid img-thumbnail animate__animated animate__fadeInBottomLeft "/>
       </div>
 
       <div className="col-8">

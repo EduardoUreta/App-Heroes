@@ -10,7 +10,7 @@ export const HeroList = ({publisher}) => {
 
   return (
     <>
-    <div className="row g-2">
+    <div className="row rows-cols-1 row-cols-md-4 g-3">
         {
             heroes.map(hero => (
                 <HeroCard key={hero.id} {...hero}/> //Le paso el ID y todo el hero
