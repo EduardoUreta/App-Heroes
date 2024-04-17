@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth/context/AuthContext';
 
 export const Navbar = () => {
 
@@ -6,10 +8,14 @@ export const Navbar = () => {
     // que da acceso a leer la ruta y distintas funciones
     const navigate = useNavigate();
     const onLogout = () => {
+        logout(); // Elimina el nombre de usuario al no estar logueado
         navigate('/login', {
             replace: true, //El replace evita que el usuario vuelva a la página anterior
         });
     };
+
+    // Para obtener el nombre del usuario logueado
+    const { user, logout } = useContext(AuthContext);
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-3">
@@ -49,7 +55,7 @@ export const Navbar = () => {
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                 <ul className="navbar-nav ml-auto">
                     <span className='nav-item nav-link text-primary '>
-                        Eduardo
+                        {user?.name}
                     </span>
                     
                     <button 
