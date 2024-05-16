@@ -9,7 +9,7 @@ export const SearchPage = () => {
   const navigate = useNavigate();
   //Aqui viene una key, pathname, search
   const location = useLocation(); 
-  // Con el paquete queryString lo hago más facil de obtener lo que hay en la ruta
+  // Con el paquete queryString lo hago más facil de obtener lo que hay en la ruta, lo extrae
   // La q, vendria siendo lo que se puso en el buscador
   const {q = ''} = queryString.parse(location.search); 
 
@@ -27,11 +27,10 @@ export const SearchPage = () => {
   const onSearchSubmit = (e) => {
     e.preventDefault();
     // console.log({buscador});
-    if(buscador.trim().length <= 1) return;
+    // if(buscador.trim().length <= 1) return;
 
     navigate(`?q=${buscador}`);
   }
-
 
   return (
     <div className="container">
@@ -60,7 +59,6 @@ export const SearchPage = () => {
         <div className="col-7">
           <h4>Resultados</h4>
           <hr/>
-          
           
           <div className="alert alert-primary" style={{display: showSearch ? '' : 'none'}}>
             Busca un Heroe

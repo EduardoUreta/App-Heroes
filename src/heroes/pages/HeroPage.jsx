@@ -4,13 +4,13 @@ import { useMemo } from "react";
 
 export const HeroPage = () => {
 
-  const params = useParams();
+  const params = useParams(); // Obtiene los parametros. * es todo. heroId es 'marvel-spider'
   // const {heroId} = useParams();
   const hero = useMemo(() => {
     return getHeroById(params.heroId)
   },[params.heroId]);
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
   const onNavigateBack = () => {
     if(hero.publisher === "Marvel Comics"){
       navigate("/marvel");
@@ -19,8 +19,8 @@ export const HeroPage = () => {
     }
   };
 
+  // Si no existe el heroe, lo manda a esta redirección
   if(!hero) {
-    // Si no existe el heroe, lo manda a esta redirección
     return <Navigate to="/marvel"/>
   }  
 

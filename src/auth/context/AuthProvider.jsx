@@ -7,14 +7,14 @@ const init = () => {
   const user = JSON.parse(localStorage.getItem('user'));
 
   return {
-    loggd: !!user,
+    logged: !!user,
     user: user,
   }
 }
 
 export const AuthProvider = ({children}) => {
 
-  const [authState, dispatch] = useReducer(authReducer, {}, init);
+  const [authState, dispatch] = useReducer(authReducer, {}, init); // Para manejar estados. Reducer, state initial, e inicializador
 
   // Establecer un login de usuario, osea que se conecte
   const login = (name = '') => {

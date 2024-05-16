@@ -4,6 +4,9 @@ import { AuthContext } from '../../auth/context/AuthContext';
 
 export const Navbar = () => {
 
+    // Para obtener el nombre del usuario logueado
+    const { user, logout } = useContext(AuthContext);
+
     // Custom Hook de react-router-dom, 
     // que da acceso a leer la ruta y distintas funciones
     const navigate = useNavigate();
@@ -13,9 +16,6 @@ export const Navbar = () => {
             replace: true, //El replace evita que el usuario vuelva a la página anterior
         });
     };
-
-    // Para obtener el nombre del usuario logueado
-    const { user, logout } = useContext(AuthContext);
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-3">
